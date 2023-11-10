@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <!-- Vendor CSS Files -->
+  <link href="src/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="src/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="src/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"
+    integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+    integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Template Main CSS File -->
+  <link href="src/css/style.css" rel="stylesheet">
+  <!-- CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simple-notify@0.5.5/dist/simple-notify.min.css" />
+
+  <!-- JS -->
+  <script src="https://cdn.jsdelivr.net/npm/simple-notify@0.5.5/dist/simple-notify.min.js"></script>
+
+  <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,600,700" rel="stylesheet" />
+  <link rel="shortcut icon" href="src/img/favicon.png" type="image/x-icon" />
+  <link rel="stylesheet" href="src/css/custom.css">
+  <link rel="stylesheet" href="src/sass/main.scss">
+
+  <script defer src="src/js/controller.js" type="module"></script>
+
+
+
+</head>
+
+<body class="toggle-sidebar" id="body">
+
+  <!-- ======= Header ======= -->
+  <header class="text-white fixed-top">
+    <div class="nav_flex">
+      <div class="align-items-center justify-content-between logo-container">
+        <a href="/" class="mb-2 mb-lg-0 text-white text-decoration-none ms-3">
+          <img src="src/img/logo-2.png" alt="Logo" width=100 height=auto class="header__logo" />
+        </a>
+        <div class="justify-content-between ms-5  hidden-on-main">
+          <i class="fa-solid fa-bars" id="mobile-menu-button"></i>
+        </div>
+      </div>
+      <nav class="nav hidden-on-small" id="mobile-menu">
+        <ul class="nav__list ">
+          <li class="nav__item">
+            <button type="button" class="raise nav__btn nav__btn--add-recipe hidden hidden-on-small">
+              <span>Add recipe</span>
+            </button>
+          </li>
+          <li class="nav__item">
+            <button type="button" class="raise nav__btn aboutUs" id="aboutUs">
+              <span>About us</span>
+            </button>
+          </li>
+          <li class="nav__item">
+            <button type="button" class="raise nav__btn addRecipe" id="addRecipe">
+              <span>Add recipe</span>
+            </button>
+          </li>
+        </ul>
+      </nav>
+      <ul class="nav__list">
+        <li class="nav__item">
+          <button class="raise nav__btn " id="bookmark-list-button">
+            <i class="fa-solid fa-bookmark"></i>
+          </button>
+        </li>
+      </ul>
+    </div>
+  </header><!-- End Header -->
+  <div class="hidden" id="bookmark-list">
+    <ul class="bookmarks__list">
+      <div class="message">
+        <p>
+          No bookmarks yet. Find a nice recipe and bookmark it :)
+        </p>
+      </div>
+    </ul>
+  </div>
+  <!-- ======= Sidebar ======= -->
+  <aside id="sidebar" class="sidebar">
+    <form class="search search-form form mt-3">
+      <input type="text" class="search__field search-field" placeholder="Search over 1,000,000 recipes..." />
+      <button class="search__btn button ">
+        <i class="fa-solid fa-magnifying-glass "></i>
+      </button>
+    </form>
+    <div class="search-results" id="search-results">
+      <ul class="results m-0">
+      </ul>
+      <div class="pagination ms-3" id="pagination">
+        <div class="row">
+          <div class="col-6"></div>
+          <div class="col-6"></div>
+        </div>
+      </div>
+    </div>
+  </aside>
+  <!-- End Sidebar-->
+  <main id="main" class="main">
+    <i class="bi bi-search toggle-sidebar-btn" id="search"></i>
+    <div class="row">
+      <!-- ======= Home Page ======= -->
+      <div class="recipe">
+        <div class="container-fluid background " style="background-image: url(src/img/hero-2.jpg);">
+          <div class="row m-auto justify-content-center">
+            <div class="col-lg-6 col-md-8 col-sm-7 align-middle">
+              <div class="hero-headline">
+                <h1 class="display-4 fw-normal text-center">TASTE THE WORLD</h1>
+                <p class="lead fw-normal text-center">Start by searching for a recipe or an ingredient</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="container-fluid">
+          <div class="row justify-content-center py-5 px-0">
+            <h1 class="display-4 fw-normal text-center mb-5">Get your dinner idea here</h1>
+            <div class="bell-pepper hidden-on-small"></div>
+            <div class="leaf-2 hidden-on-small "></div>
+            <div class="col-lg-5 col-md-6 col-sm-11">
+              <div class="content">
+                <a href="#5ed6604591c37cdc054bcaf8">
+                  <div class="content-overlay"></div>
+                  <img class="content-image" src="/src/img/card-1.jpg" alt="">
+                  <div class="content-details fadeIn-bottom">
+                    <h3 class="content-title">Beef Wellington</h3>
+                    <p class="content-text">Simply Recipes</p>
+                  </div>
+                </a>
+              </div>
+            </div>
+            <div class="leaf-1 hidden-on-small"></div>
+            <div class="col-lg-5 col-md-6 col-sm-11 card-2-responsive">
+              <div class="content">
+                <a href="#5ed6604591c37cdc054bcaf8">
+                  <div class="content-overlay"></div>
+                  <img class="content-image" src="/src/img/card-3.jpg" alt="">
+                  <div class="content-details fadeIn-bottom">
+                    <h3 class="content-title">Salisbury Steak</h3>
+                    <p class="content-text">The Pioneer Woman</p>
+                  </div>
+                </a>
+              </div>
+            </div>
+            <div class="pepper hidden-on-small "></div>
+          </div>
+        </div>
+        <div class="container-fluid background" style="background-image: url(src/img/hero-3.jpeg);">
+          <div class="row m-auto justify-content-center">
+            <div class="col-lg-6 col-md-9 col-sm-9 align-middle">
+              <div class="hero-headline">
+                <h1 class="display-4 fw-normal text-light text-center"> Where Flavor Meets Fun!</h1>
+                <p class="lead fw-normal text-light text-center">Welcome to the Ultimate Recipe Destination</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="bg-yellow">
+          <div class="row justify-content-center py-5">
+            <h1 class="display-4 fw-normal text-center mb-5">This weeks most visited recepies</h1>
+            <div class="radish hidden-on-small "></div>
+            <div class="col-lg-3 col-md-12 col-sm-12">
+              <a href="#5ed6604591c37cdc054bceea" class="link-style">
+                <div class="bg-transparent border-0 text-center">
+                  <img src="/src/img/plate-5.jpg" class="card-image-round align-middle" alt="...">
+                  <div class="card-body mt-3 p-3">
+                    <h5 class="card-title">Salade Lyonnaise</h5>
+                    <p class="card-text my-3">Enjoy the satisfying and delicious combination of frisée lettuce, crispy
+                      lardons, croutons, and a poached egg with a warm vinaigrette in the classic French salad</p>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div class="col-lg-3 col-md-12 col-sm-12">
+              <a href="#5ed6604591c37cdc054bcea4" class="link-style">
+                <div class="bg-transparent border-0 text-center">
+                  <img src="/src/img/plate-2.jpg" class="card-image-round align-middle" alt="...">
+                  <div class="card-body mt-3 p-3">
+                    <h5 class="card-title">Teriyaki Salmon</h5>
+                    <p class="card-text my-3">Try this delicious and healthy Japanese-inspired dish featuring salmon
+                      fillets marinated in a flavorful mixture of soy sauce, mirin, sugar, and ginger.</p>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div class="col-lg-3 col-md-12 col-sm-12">
+              <a href="#5ed6604591c37cdc054bcea4" class="link-style">
+                <div class="bg-transparent border-0 text-center">
+                  <img src="/src/img/plate-6.jpg" class="card-image-round align-middle" alt="...">
+                  <div class="card-body mt-3 p-3">
+                    <h5 class="card-title">Duck with plum sauce </h5>
+                    <p class="card-text my-3">Delicious and unique dining experience, as the tender and juicy duck
+                      meat pairs perfectly with the sweet and tangy plum sauce, creating a flavorful and satisfying
+                      dish.</p>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div class="eggplant hidden-on-small "></div>
+          </div>
+        </div>
+        <div class="quote-container">
+          <div class="row m-auto justify-content-center">
+            <div class="col-lg-6 col-md-10 col-sm-10 food-quote  align-middle">
+              <i class="fa-sharp fa-solid fa-quote-left ms-3 custom-quote"></i>
+              <p class="fw-normal text-center">Food is the universal language of love. It has the power to bring
+                people together and create unforgettable memories</p>
+            </div>
+          </div>
+        </div>
+        <div class="container-fluid counter-background" style="background-image: url(src/img/banner.jpg); ">
+          <div class="row m-auto justify-content-lg-end justify-content-sm-evenly">
+            <div class="col-lg-6 col-md-12 col-sm-12 align-middle mt-lg-5">
+              <div class="count-area mt-lg-5" data-diff="100">
+                <div class="row mt-lg-5 pt-lg-5">
+                  <div class="col-sm-6 col-md-6 mt-lg-5">
+                    <div class="count-area-content">
+                      <div class="count-icon"><i class="fa-regular fa-face-smile"></i></div>
+                      <div>
+                        <div class="count-title">Over</div>
+                        <div class="count-digit">40</div>
+                        <div class="count-title">Happy employees</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-6 col-md-6 mt-lg-5">
+                    <div class="count-area-content ">
+                      <div class="count-icon"><i class="fa fa-user"></i></div>
+                      <div>
+                        <div class="count-title">Over</div>
+                        <div class="count-digit">800</div>
+                        <div class="count-title">Registered Users</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row ">
+                  <div class="col-sm-6 col-md-6 mt-lg-5">
+                    <div class="count-area-content">
+                      <div class="count-icon"><i class="fa-solid fa-eye"></i></div>
+                      <div>
+                        <div class="count-title">Over</div>
+                        <div class="count-digit">50000</div>
+                        <div class="count-title">Viewed recipes</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-6 col-md-6 mt-lg-5">
+                    <div class="count-area-content">
+                      <div class="count-icon"><i class="fa fa-book"></i></div>
+                      <div>
+                        <div class="count-title">Over</div>
+                        <div class="count-digit">9999</div>
+                        <div class="count-title">Submited recipes</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row p-5 justify-content-center">
+          <div class="mushroom hidden-on-small "></div>
+          <div class="avocado hidden-on-small "></div>
+          <h3 class="text-center mb-5 product-title">Looking for delicious and refreshing meal ideas for those warm
+            summer days?<br> Check out our summer recipe section, featuring a variety of light and flavorful salads
+            and risottos,<br>perfect for any summer gathering or mealtime!</h3>
+          <div class="col-lg-3 col-md-6 col-sm-6 ">
+            <a href="#5ed6604691c37cdc054bd070" class="link-style">
+              <div id="ho_bo" class="our_products">
+                <div class="product">
+                  <figure><img src="/src/img/product-card-1.png" width="100%" alt="#"></figure>
+                </div>
+                <h3>Warm potato & tuna salad with pesto dressing </h3>
+                <span>By BBC Good Food</span>
+              </div>
+            </a>
+          </div>
+          <div class="col-lg-3 col-md-6 col-sm-6">
+            <div id="ho_bo" class="our_products">
+              <a href="#5ed6604591c37cdc054bc948" class="link-style">
+                <div class="product">
+                  <figure><img src="/src/img/product-card-5.png" width="100%" alt="#"></figure>
+                </div>
+                <h3>Paleo Dirty Rice with Culiflower and Scallions</h3>
+                <span>By Elana's Pantry</span>
+              </a>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 col-sm-6">
+            <div id="ho_bo" class="our_products">
+              <div class="product">
+                <figure><img src="/src/img/product-card-3.png" width="100%" alt="#"></figure>
+              </div>
+              <h3>Sushi rice bowl with beef, egg & chilli sauce </h3>
+              <span>By BBC Good Food.</span>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 col-sm-6">
+            <div id="ho_bo" class="our_products">
+              <div class="product">
+                <figure><img src="/src/img/product-card-4.png" width="100%" alt="#"></figure>
+              </div>
+              <h3>Spanish seafood rice with Saffron and Garlic</h3>
+              <span>By Elana's Pantry</span>
+            </div>
+          </div>
+        </div>
+        <div>
+        </div>
+      </div>
+      <div id="addRecipePage" class="hidden">
+        <div class="container-fluid background addRecipeImage ">
+          <div class="row m-auto justify-content-end">
+            <div class="col-8 align-middle">
+              <div class="hero-headline">
+                <h1 class="display-4 fw-normal text-center">ADD RECIPE</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row justify-content-center mt-5 mb-5">
+          <div class="bananas hidden-on-small "></div>
+          <div class="basil hidden-on-small "></div>
+          <div class="col-lg-5">
+            <form class="form-z-index">
+              <div class="mb">
+                <label for="title" class="col-form-label">Title</label>
+                <input type="text" class="form-control custom-input" id="title" />
+              </div>
+              <div class="mb">
+                <label for="url" class="col-form-label">URL</label>
+                <input type="text" class="form-control" id="url" />
+              </div>
+              <div class="mb">
+                <label for="sourceUrl" class="col-form-label">Source URL</label>
+                <input type="text" class="form-control" id="sourceUrl" />
+              </div>
+              <div class="mb">
+                <label for="publisher" class="col-form-label">Publisher</label>
+                <input type="text" class="form-control" id="publisher" />
+              </div>
+              <div class="mb">
+                <label for="cookingTime" class="col-form-label">Cooking time</label>
+                <input type="text" class="form-control" id="cookingTime" />
+              </div>
+              <div class="mb" id="ingredient-fields">
+                <div class="row">
+                  <div class="col-2">
+                    <label for="quantity1" class="col-form-label">Quantity</label>
+                    <input type="number" step="0.1" class="form-control me-2" id="quantity1" />
+                  </div>
+                  <div class="col-3 ">
+                    <div class="custom-field">
+                      <label for="unit1" class="col-form-label">Unit</label>
+                      <select class="form-select" aria-label="Select unit" id="unit1">
+                        <option value="" selected>Select unit</option>
+                        <option value="teaspoon">teaspoon</option>
+                        <option value="tablespoon">tablespoon</option>
+                        <option value="fluid ounce">fluid ounce</option>
+                        <option value="cup">cup</option>
+                        <option value="pint">pint</option>
+                        <option value="quart">quart</option>
+                        <option value="gallon">gallon</option>
+                        <option value="milliliter">milliliter</option>
+                        <option value="liter">liter</option>
+                        <option value="ounce">ounce</option>
+                        <option value="pound">pound</option>
+                        <option value="gram">gram</option>
+                        <option value="kilogram">kilogram</option>
+                        <option value="piece">piece</option>
+                        <option value="slice">slice</option>
+                        <option value="clove">clove</option>
+                        <option value="head">head</option>
+                        <option value="bunch">bunch</option>
+                        <option value="bulb">bulb</option>
+                        <option value="can">can</option>
+                        <option value="jar">jar</option>
+                        <option value="package">package</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col-7">
+                    <div class="ingredient">
+                      <label for="ingredient1" class="col-form-label">Ingredient 1</label>
+                      <input type="text" class="form-control ingredient-input" id="ingredient1" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <button class="more-ingredients " onclick="revealNewField(this)"> <span class="submit-text">More ingredients</span></button>
+              <button id="submit" class="raise submit-btn mt-5">
+                <span class="submit-text">Submit</span>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Home Page-->
+    <!-- ======= Footer ======= -->
+    <div class="row justify-content-center  footer">
+      <div class="col-lg-4 col-md-4 col-sm-12">
+        <div class="footer-info">
+          <h4>Recipe Online </h4>
+          <p>
+            <strong>Phone:</strong> +1 5589 55488 55<br>
+            <strong>Email:</strong> info@example.com<br>
+          </p>
+        </div>
+      </div>
+      <div class="col-lg-4 ms-lg-5 col-md-4 col-sm-12">
+        <h4>Find us on social media</h4>
+        <div class="social-links mt-3">
+          <a href="#" class="twitter"><i class="fa-brands fa-twitter"></i></a>
+          <a href="#" class="facebook"><i class="fa-brands fa-facebook"></i></a>
+          <a href="#" class="instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" class="google-plus"><i class="fa-brands fa-skype"></i></a>
+          <a href="#" class="linkedin"><i class="fa-brands fa-linkedin"></i></a>
+        </div>
+      </div>
+      <div class="col-lg-3 ms-lg-5 col-md-4 col-sm-12 footer-newsletter">
+        <h4>Our Newsletter</h4>
+        <form action="" method="post">
+          <input type="email" name="email"><input type="submit" value="Subscribe">
+        </form>
+      </div>
+    </div>
+    <div class="row justify-content-center copyright">
+      <div class="col-9 text-center">
+        copyright
+      </div>
+    </div>
+    <!-- End Footer-->
+  </main><!-- End #main -->
+
+  <!-- ======= IMPORTANT !!!! DONT TOUCH !!! CAUTION !!! IMPORTANT ======= -->
+
+  <div class="overlay hidden"></div>
+  <div class="add-recipe-window hidden" id="data">
+    <button class="btn--close-modal">&times;</button>
+    <form>
+      <div class="mb-3">
+        <label for="title" class="col-form-label">Title</label>
+        <input type="text" class="form-control" id="title">
+      </div>
+      <div class="mb-3">
+        <label for="url" class="col-form-label">URL</label>
+        <input type="text" class="form-control" id="title">
+      </div>
+      <div class="mb-3">
+        <label for="sourceUrl" class="col-form-label">Source URL</label>
+        <input type="text" class="form-control" id="sourceUrl">
+      </div>
+      <div class="mb-3">
+        <label for="publisher" class="col-form-label">Publisher</label>
+        <input type="text" class="form-control" id="publisher">
+      </div>
+      <div class="mb-3">
+        <label for="cookingTime" class="col-form-label">Cooking time</label>
+        <input type="text" class="form-control" id="cookingTime">
+      </div>
+
+    </form>
+
+    <form class="hidden" id="ingredients">
+      <div class="mb-3">
+        <label for="title" class="col-form-label">Title</label>
+        <input type="text" class="form-control" id="title">
+      </div>
+      <div class="mb-3">
+        <label for="url" class="col-form-label">URL</label>
+        <input type="text" class="form-control" id="title">
+      </div>
+      <div class="mb-3">
+        <label for="sourceUrl" class="col-form-label">Source URL</label>
+        <input type="text" class="form-control" id="sourceUrl">
+      </div>
+      <div class="mb-3">
+        <label for="publisher" class="col-form-label">Publisher</label>
+        <input type="text" class="form-control" id="publisher">
+      </div>
+      <div class="mb-3">
+        <label for="cookingTime" class="col-form-label">Cooking time</label>
+        <input type="text" class="form-control" id="cookingTime">
+      </div>
+    </form>
+
+    <button class="btn upload__btn" id="next-button">
+      <svg>
+        <use href="src/img/icons.svg#icon-upload-cloud"></use>
+      </svg>
+      <span>Upload</span>
+    </button>
+    </form>
+  </div>
+  <!-- =======END OF IMPORTANT !!!! DONT TOUCH !!! CAUTION !!! IMPORTANT ======= -->
+  <script>
+
+
+    /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+    /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+    /* * * * * * * * * * * *                                   * * * * * * * * * * * */
+    /* * * * * * * * * * * *          ADD RECIPE PAGE          * * * * * * * * * * * */
+    /* * * * * * * * * * * *                                   * * * * * * * * * * * */
+    /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+    /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+    let addRecipe = document.querySelector(".addRecipe").addEventListener("click", showAddRecipe);
+    let recipe = document.querySelector(".recipe");
+    function showAddRecipe() {
+
+      recipe.innerHTML = "";
+      let addRecipePage = document.querySelector("#addRecipePage");
+      addRecipePage.classList.remove("hidden")
+
+    }
+    var count = 1;
+    function revealNewField() {
+      event.preventDefault();
+      count++;
+      var newIngredientField = `
+                  <div class="mb-3" id="ingredient-fields">
+                    <div class="row ">
+                        <div class="col-2 ">
+                            <label for="quantity" class="col-form-label">Quantity</label>
+                            <input type="number" step="0.1" class="form-control " id="quantity${count}">
+                        </div>
+                        <div class="col-3">
+                          <div class="custom-field">
+                            <label for="unit1" class="col-form-label">Unit</label>
+                            <select class="form-select" aria-label="Select unit" id="unit1">
+                              <option value="" selected>Select unit</option>
+                              <option value="teaspoon">teaspoon</option>
+                              <option value="tablespoon">tablespoon</option>
+                              <option value="fluid ounce">fluid ounce</option>
+                              <option value="cup">cup</option>
+                              <option value="pint">pint</option>
+                              <option value="quart">quart</option>
+                              <option value="gallon">gallon</option>
+                              <option value="milliliter">milliliter</option>
+                              <option value="liter">liter</option>
+                              <option value="ounce">ounce</option>
+                              <option value="pound">pound</option>
+                              <option value="gram">gram</option>
+                              <option value="kilogram">kilogram</option>
+                              <option value="piece">piece</option>
+                              <option value="slice">slice</option>
+                              <option value="clove">clove</option>
+                              <option value="head">head</option>
+                              <option value="bunch">bunch</option>
+                              <option value="bulb">bulb</option>
+                              <option value="can">can</option>
+                              <option value="jar">jar</option>
+                              <option value="package">package</option>
+                            </select>
+                          </div>
+                        </div>
+                        <div class="col-7">
+                          <div class="ingredient">
+                            <label for="ingredient${count}" class="col-form-label">Ingredient ${count}</label>
+                            <input type="text" class="form-control ingredient-input" id="ingredient${count}" >
+                          </div>
+                        </div>
+                    </div>
+                  </div>
+                `;
+      document.getElementById("ingredient-fields").insertAdjacentHTML("beforeend", newIngredientField);
+
+    }
+
+    let submitRecipe = document.getElementById("submit");
+    let title = document.getElementById("title");
+    let url = document.getElementById("url");
+    let sourceUrl = document.getElementById("sourceUrl");
+    let publisher = document.getElementById("publisher");
+    let cookingTime = document.getElementById("cookingTime");
+
+    submitRecipe.addEventListener("click", validateForm);
+
+    function validateForm() {
+
+      event.preventDefault();
+      if (title.value == "") {
+        new Notify({
+          title: 'Wrong title',
+          text: "Title can't be empty",
+          autoclose: true,
+          autotimeout: 3000,
+          status: 'warning',
+          effect: 'slide',
+        })
+      }
+      else if (url.value == "") {
+        new Notify({
+          title: 'Wrong url',
+          text: "Url can't be empty",
+          autoclose: true,
+          autotimeout: 3000,
+          status: 'warning',
+          effect: 'slide',
+        })
+      }
+      else if (sourceUrl.value == "") {
+        new Notify({
+          title: 'Wrong source url',
+          text: "Source url can't be empty",
+          autoclose: true,
+          autotimeout: 3000,
+          status: 'warning',
+          effect: 'slide',
+        })
+      }
+      else if (publisher.value == "") {
+        new Notify({
+          title: 'Wrong publisher',
+          text: "Publisher can't be empty",
+          autoclose: true,
+          autotimeout: 3000
+        })
+      }
+      else if (cookingTime.value == "") {
+        new Notify({
+          title: 'Wrong cooking time',
+          text: "Cooking time can't be empty",
+          autoclose: true,
+          autotimeout: 3000,
+          status: 'warning',
+          effect: 'slide',
+        })
+      } else {
+        let i;
+        for (i = 1; i <= count; i++) {
+          let ingredient = document.getElementById(`ingredient${i}`).value;
+          let quantity = document.getElementById(`quantity${i}`).value;
+          let unit = document.getElementById(`unit${i}`).value;
+
+          if (unit == "") {
+            new Notify({
+              title: 'Wrong unit',
+              text: "Unit can't be empty",
+              autoclose: true,
+              autotimeout: 3000,
+              status: 'warning',
+              effect: 'slide',
+            })
+          }
+          else if (quantity == 0) {
+            new Notify({
+              title: 'Wrong quantity',
+              text: "Quantity can't be empty",
+              autoclose: true,
+              autotimeout: 3000,
+              status: 'warning',
+              effect: 'slide',
+            })
+          }
+          else if (ingredient == "") {
+            new Notify({
+              title: 'Wrong ingredient',
+              text: "Ingredient can't be empty",
+              autoclose: true,
+              autotimeout: 3000,
+              status: 'warning',
+              effect: 'slide',
+            })
+
+
+          }
+
+        }
+
+
+      }
+      let validated = 0;
+      for (i = 1; i <= count; i++) {
+        let ingredient = document.getElementById(`ingredient${i}`).value;
+        let quantity = document.getElementById(`quantity${i}`).value;
+        let unit = document.getElementById(`unit${i}`).value;
+        if (ingredient != "" && quantity != 0 && unit != "") {
+          validated++
+        }
+      }
+      if (validated === count && title.value !== "" && url.value !== "" && sourceUrl.value !== "" && publisher.value !== "" && cookingTime.value !== "") {
+
+        new Notify({
+          title: 'Success',
+          text: "You submitted recipe",
+          autoclose: true,
+          autotimeout: 3000,
+          status: 'success',
+          effect: 'slide',
+        })
+
+      }
+    }
+
+
+
+
+    /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+    /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+    /* * * * * * * * * * * *                                   * * * * * * * * * * * */
+    /* * * * * * * * * * * *            ABOUT US PAGE          * * * * * * * * * * * */
+    /* * * * * * * * * * * *                                   * * * * * * * * * * * */
+    /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+    /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+    let aboutUs = document.querySelector(".aboutUs").addEventListener("click", showAboutUs);
+    function showAboutUs() {
+      recipe.innerHTML = ""
+      let markup = `
+      <div class="container-fluid background aboutUsImage">
+        <div class="row m-auto justify-content-start">
+            <div class="col-8 align-middle">
+                <div class="hero-headline">
+                    <h1 class="display-4 fw-normal text-center">ABOUT</h1>
+                </div>
+            </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-6 books hidden-on-small"></div>
+          <div class="col-lg-6 col-md-12 col-sm-12">
+            <p class="align-middle mt-4 pe-lg-5 me-lg-5 about-text">
+              Welcome to <b>Recipe Online</b>! We are passionate about food and love sharing our favorite
+              recipes with the world. Our team is made up of home cooks and professional chefs who are dedicated to
+              bringing you delicious, easy-to-follow recipes that you can enjoy with your friends and family.
+            </p>
+            <div class="garlic-2 hidden-on-small"></div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-5 tomatos"></div>
+          <div class="col-7 book-page hidden-on-small"></div>
+        </div>
+        <div class="row">
+          <div class="col-7 recipe-book hidden-on-small"></div>
+          <div class="col-lg-4 col-md-12 col-sm-12 ms-lg-5 mt-4 about-text">
+            <p>We believe that cooking should be accessible to everyone, regardless of their skill level in
+            the kitchen. That's why we strive to provide recipes that are approachable and use ingredients that are easy
+            to find.
+            Whether you're a seasoned cook or a beginner, we hope that you'll find inspiration and joy in our recipes.
+            Thank you for visiting our website, and happy cooking!  
+            </p>
+            <div class="vlashac"></div>
+          </div>  
+        </div> 
+
+            `;
+
+      recipe.insertAdjacentHTML("afterbegin", markup);
+      if (!(addRecipePage.classList.contains("hidden"))) {
+        addRecipePage.classList.add("hidden")
+      }
+    }
+
+    /* * * * * * * * * * * *            Toggle mobile menu         * * * * * * * * * * * */
+    let menuButton = document.querySelector("#mobile-menu-button");
+    let mobileMenu = document.querySelector("#mobile-menu");
+
+
+    menuButton.addEventListener("click", toggleMobileMenu);
+
+    function toggleMobileMenu() {
+      mobileMenu.classList.toggle("hidden-on-small");
+      console.log(mobileMenu.classList.contains("hidden-on-small"));
+      if (!mobileMenu.classList.contains("hidden-on-small")) {
+        menuButton.classList.remove("fa-bars");
+        menuButton.classList.add("fa-xmark");
+      } else {
+        menuButton.classList.add("fa-bars");
+        menuButton.classList.remove("fa-xmark");
+      }
+    }
+    let aboutUs_ = document.querySelector("#aboutUs");
+    aboutUs_.addEventListener("click", closeMobileMenu);
+    let addRecipe_ = document.querySelector("#addRecipe");
+    addRecipe_.addEventListener("click", closeMobileMenu);
+    function closeMobileMenu() {
+      mobileMenu.classList.add("hidden-on-small");
+      if (!mobileMenu.classList.contains("hidden-on-small")) {
+        menuButton.classList.remove("fa-bars");
+        menuButton.classList.add("fa-xmark");
+      } else {
+        menuButton.classList.add("fa-bars");
+        menuButton.classList.remove("fa-xmark");
+      }
+    }
+    let bookmarkListButton = document.querySelector("#bookmark-list-button");
+    let bookmarkList = document.querySelector("#bookmark-list");
+    bookmarkListButton.addEventListener('click', toggleBookmarkList);
+
+
+    function toggleBookmarkList() {
+      bookmarkList.classList.toggle("hidden");
+    }
+    /**************************************************************toggle sidebar small screen*/
+    const body = document.querySelector('#body');
+    if (window.innerWidth <= 768) {
+      body.classList.remove('toggle-sidebar');
+    }
+
+
+    function visible(partial) {
+      var t = partial,
+        w = jQuery(window),
+        viewTop = w.scrollTop(),
+        viewBottom = viewTop + w.height(),
+        _top = t.offset().top,
+        _bottom = _top + t.height(),
+        compareTop = partial === true ? _bottom : _top,
+        compareBottom = partial === true ? _top : _bottom;
+
+      return ((compareBottom <= viewBottom) && (compareTop >= viewTop) && t.is(':visible'));
+
+    }
+
+    $(window).scroll(function () {
+
+      if (visible($('.count-digit'))) {
+        if ($('.count-digit').hasClass('counter-loaded')) return;
+        $('.count-digit').addClass('counter-loaded');
+
+        $('.count-digit').each(function () {
+          var $this = $(this);
+          jQuery({ Counter: 0 }).animate({ Counter: $this.text() }, {
+            duration: 5000,
+            easing: 'swing',
+            step: function () {
+              $this.text(Math.ceil(this.Counter));
+            }
+          });
+        });
+      }
+    })
+  </script>
+  <!-- Vendor JS Files -->
+  <script src="src/vendor/apexcharts/apexcharts.min.js"></script>
+  <script src="src/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="src/vendor/chart.js/chart.umd.js"></script>
+  <script src="src/vendor/echarts/echarts.min.js"></script>
+  <script src="src/vendor/quill/quill.min.js"></script>
+  <script src="src/vendor/simple-datatables/simple-datatables.js"></script>
+  <script src="src/vendor/tinymce/tinymce.min.js"></script>
+  <script src="src/vendor/php-email-form/validate.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="src/js/main.js"></script>
+
+
+</body>
+
+</html>
